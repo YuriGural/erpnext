@@ -130,6 +130,6 @@ Nehmen wir an, dass zum 5. Januar 2014 eine Buchung zu einem Kaufbeleg erfolgt. 
 
 Nach der Aktualisierungslogik wird der Kontostand, der durch den Bestandsabgleich ermittelt wurde, nicht beeinträchtigt, ungeachtet der Zugangsbuchung für den Artikel.
 
-> Sehen Sie hierzu die Videoanleitung auf https://www.youtube.com/watch?v=0yPgrtfeCTs
+> Sehen Sie hierzu die Videoanleitung auf https://www.youtube.com/watch?v=nlHX0ZZ84Lw
 
 {next}
