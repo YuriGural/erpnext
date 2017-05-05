@@ -25,4 +25,4 @@ Select Expense account for depreciation in **Difference Account**. Value booked 
 
 ####Stock Reconciliation Help Video
 
-<iframe width="660" height="371" src="https://www.youtube.com/embed/0yPgrtfeCTs" frameborder="0" allowfullscreen></iframe>
+<iframe width="660" height="371" src="https://www.youtube.com/embed/nlHX0ZZ84Lw" frameborder="0" allowfullscreen></iframe>
