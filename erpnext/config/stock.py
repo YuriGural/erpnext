@@ -303,7 +303,7 @@ def get_data():
 				{
 					"type": "help",
 					"label": _("Opening Stock Balance"),
-					"youtube_id": "0yPgrtfeCTs"
+					"youtube_id": "nlHX0ZZ84Lw"
 				},
 				{
 					"type": "help",
