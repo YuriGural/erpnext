@@ -675,7 +675,7 @@ erpnext.taxes_and_totals = erpnext.payments.extend({
 
 						item_tax[item_code][tax.name] = [tax_rate, tax_amount];
 					} else {
-						item_tax[item_code][tax.name] = [flt(tax_data, tax_rate_precision) + "%", ""];
+						item_tax[item_code][tax.name] = [flt(tax_data, tax_rate_precision) + "%", "0.00"];
 					}
 				});
 			tax_accounts.push([tax.name, tax.account_head]);
@@ -693,19 +693,26 @@ erpnext.taxes_and_totals = erpnext.payments.extend({
 
 		var distinct_item_names = [];
 		var distinct_items = [];
+		var taxable_amount = {};
 		$.each(this.frm.doc["items"] || [], function(i, item) {
-			if(distinct_item_names.indexOf(item.item_code || item.item_name)===-1) {
-				distinct_item_names.push(item.item_code || item.item_name);
+			var item_code = item.item_code || item.item_name;
+			if(distinct_item_names.indexOf(item_code)===-1) {
+				distinct_item_names.push(item_code);
 				distinct_items.push(item);
+				taxable_amount[item_code] = item.net_amount;
+			} else {
+				taxable_amount[item_code] = taxable_amount[item_code] + item.net_amount;
 			}
 		});
 
 		var rows = $.map(distinct_items, function(item) {
-			var item_tax_record = item_tax[item.item_code || item.item_name];
+			var item_code = item.item_code || item.item_name;
+			var item_tax_record = item_tax[item_code];
 			if(!item_tax_record) { return null; }
+
 			return repl("<tr><td>%(item_name)s</td><td class='text-right'>%(taxable_amount)s</td>%(taxes)s</tr>", {
 				item_name: item.item_name,
-				taxable_amount: format_currency(item.net_amount, 
+				taxable_amount: format_currency(taxable_amount[item_code],
 					company_currency, precision("net_amount", item)),
 				taxes: $.map(tax_accounts, function(head) {
 					return item_tax_record[head[0]] ?
